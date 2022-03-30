@@ -32,10 +32,12 @@ operators.forEach((operator) =>{
 		inputOperator(event.target.value)	
 	})
 })
-const inputOperator =(operator) => {
-	prevNumber = currentNumber
+const inputOperator =(operator) => {	
+	if (calculationOperator === '') {
+		prevNumber = currentNumber
+	}	
 	calculationOperator = operator
-	currentNumber =''
+	currentNumber ='0'
 }
 const equalSign = document.querySelector('.equal-sign')
 equalSign.addEventListener("click", () =>{
@@ -78,7 +80,7 @@ clearBtn.addEventListener("click", () =>{
 	updateScreen(currentNumber)
 })
 inputDecimal = (dot) => {
-	if(currentNumber.include('.')){
+	if(currentNumber.includes('.')){
 		return
 	}
 	currentNumber += dot
